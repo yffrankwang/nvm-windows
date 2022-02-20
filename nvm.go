@@ -560,7 +560,7 @@ func use(version string, cpuarch string, reload ...bool) {
 
 	// Create new symlink
 	var ok bool
-	ok, err = runElevated(fmt.Sprintf(`"%s" cmd /C mklink /D "%s" "%s"`, filepath.Join(env.root, "elevate.cmd"), filepath.Clean(env.symlink), filepath.Join(env.root, "v"+version)))
+	ok, err = runElevated(fmt.Sprintf(`"%s" cmd /C mklink /J "%s" "%s"`, filepath.Join(env.root, "elevate.cmd"), filepath.Clean(env.symlink), filepath.Join(env.root, "v"+version)))
 	if err != nil {
 		if strings.Contains(err.Error(), "file already exists") {
 			ok, err = runElevated(fmt.Sprintf(`"%s" cmd /C rmdir "%s"`, filepath.Join(env.root, "elevate.cmd"), filepath.Clean(env.symlink)))
