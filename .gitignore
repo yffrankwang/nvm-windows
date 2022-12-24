@@ -6,3 +6,5 @@
 *.out
 /z
 /nvm.exe
+/resource.syso
+/versioninfo.json

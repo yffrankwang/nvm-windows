@@ -1,3 +1,4 @@
+//go:generate goversioninfo
 package main
 
 import (
@@ -19,14 +20,16 @@ import (
 	"nvm/arch"
 	"nvm/file"
 	"nvm/node"
+	"nvm/ver"
 	"nvm/web"
 
 	"github.com/blang/semver"
 	"github.com/olekukonko/tablewriter"
 )
 
-const (
-	NvmVersion = "1.1.10"
+var (
+	// NvmVersion
+	NvmVersion = ver.NvmVersion
 )
 
 type Environment struct {
