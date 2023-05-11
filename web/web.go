@@ -193,7 +193,7 @@ func GetNodeJS(root string, v string, a string, append bool) bool {
 			fileName = root + "\\v" + v + "\\node.zip"
 		}
 
-		fmt.Println("Downloading node.js version " + v + " (" + a + "-bit)... ")
+		fmt.Println("Downloading node.js version " + v + " (" + a + "-bit) from " + url + " ... ")
 
 		if Download(url, fileName, v) {
 			// Extract the zip file
@@ -253,7 +253,7 @@ func GetNpm(root string, v string) bool {
 	}
 	fileName := tempDir + "\\" + "npm-v" + v + ".zip"
 
-	fmt.Printf("Downloading npm version " + v + "... ")
+	fmt.Printf("Downloading npm version %s from %s ... ", v, url)
 	if Download(url, fileName, v) {
 		fmt.Printf("Complete\n")
 		return true
@@ -304,8 +304,8 @@ func getNodeUrl(v string, vpre string, arch string, append bool) string {
 		a = "x64"
 	}
 
-	//url := "http://nodejs.org/dist/v"+v+"/" + vpre + "/node.exe"
-	url := GetFullNodeUrl("v" + v + "/" + vpre + "/node.exe")
+	//url := "http://nodejs.org/dist/v"+v+"/" + vpre + "node.exe"
+	url := GetFullNodeUrl("v" + v + "/" + vpre + "node.exe")
 
 	if !append {
 		version, err := semver.Make(v)
